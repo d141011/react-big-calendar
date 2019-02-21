@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import cn from 'classnames'
 import { navigate } from './utils/constants'
+import { Button } from 'antd'
 
 class Toolbar extends React.Component {
   render() {
@@ -13,24 +14,21 @@ class Toolbar extends React.Component {
     return (
       <div className="rbc-toolbar">
         <span className="rbc-btn-group">
-          <button
-            type="button"
+          <Button
             onClick={this.navigate.bind(null, navigate.TODAY)}
           >
             {messages.today}
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
             onClick={this.navigate.bind(null, navigate.PREVIOUS)}
           >
             {messages.previous}
-          </button>
-          <button
-            type="button"
+          </Button>
+          <Button
             onClick={this.navigate.bind(null, navigate.NEXT)}
           >
             {messages.next}
-          </button>
+          </Button>
         </span>
 
         <span className="rbc-toolbar-label">{label}</span>
@@ -54,14 +52,13 @@ class Toolbar extends React.Component {
 
     if (viewNames.length > 1) {
       return viewNames.map(name => (
-        <button
-          type="button"
+        <Button
           key={name}
           className={cn({ 'rbc-active': view === name })}
           onClick={this.view.bind(null, name)}
         >
           {messages[name]}
-        </button>
+        </Button>
       ))
     }
   }
